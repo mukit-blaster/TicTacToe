@@ -1,0 +1,134 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  list-style: none;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  background-color: #1a2a32;
+}
+
+main {
+  width: 550px;
+  height: 600px;
+  position: relative;
+  z-index: 1;
+}
+
+.glorious-heading {
+  text-align: center;
+  font-size: 3rem;
+  color: #3cc4bf;
+  text-shadow: 0 0 10px #3cc4bf, 0 0 20px #3cc4bf, 0 0 30px #3cc4bf,
+    0 0 40px #3cc4bf;
+  margin-bottom: 10px;
+}
+
+.middle {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.middle ul {
+  width: 100%;
+  height: 500px;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.middle > ul li {
+  width: 130px;
+  height: 130px;
+  border-radius: 10px;
+  background-color: #2e4756;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  color: #3cc4bf;
+  text-shadow: 0 0 10px #3cc4bf, 0 0 20px #3cc4bf, 0 0 30px #3cc4bf;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.middle > ul li:hover {
+  transform: scale(1.1);
+}
+
+.middle > ul li.X::before {
+  content: "X";
+  color: #ff4081;
+  animation: glow 1s infinite;
+}
+
+.middle > ul li.O::before {
+  content: "O";
+  color: #3cc4bf;
+  animation: glow 1s infinite;
+}
+
+@keyframes glow {
+  0%,
+  100% {
+    text-shadow: 0 0 10px, 0 0 20px, 0 0 30px, 0 0 40px;
+  }
+  50% {
+    text-shadow: 0 0 20px, 0 0 30px, 0 0 40px, 0 0 50px;
+  }
+}
+
+.winner {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  font-size: 2rem;
+  z-index: 5;
+  background-color: rgba(26, 42, 50, 0.9);
+  color: #ffffff;
+  text-align: center;
+  visibility: hidden;
+}
+
+#winner-text {
+  font-size: 2.5rem;
+  color: #3cc4bf;
+  text-shadow: 0 0 10px #3cc4bf, 0 0 20px #3cc4bf, 0 0 30px #3cc4bf;
+  margin-bottom: 20px;
+}
+
+.restart-after-win {
+  padding: 2rem 3rem;
+  border-radius: 20px;
+  font-size: 20px;
+  background-color: #709db8;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.restart-after-win:hover {
+  cursor: pointer;
+  background-color: #3cc4bf;
+}
+
+.winner.show-winner {
+  visibility: visible;
+}
