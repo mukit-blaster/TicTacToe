@@ -35,7 +35,12 @@ document.addEventListener("DOMContentLoaded", () => {
         if (checkWinner(currentPlayer)) {
           winnerText.innerText = `Player ${currentPlayer} Won`;
           winnerDeclaration.classList.add("show-winner");
-        } else {
+        } 
+          else if (isBoardFull()) {
+          winnerText.innerText = `It's a Draw!`;
+          winnerDeclaration.classList.add('show-winner');
+        }
+        else {
           currentPlayer = currentPlayer === "X" ? "O" : "X";
         }
       }
@@ -64,4 +69,8 @@ document.addEventListener("DOMContentLoaded", () => {
       return combination.every((index) => board[index] === player);
     });
   }
+
+    function isBoardFull() {
+    return board.every(cell => cell !== '');
+}
 });
